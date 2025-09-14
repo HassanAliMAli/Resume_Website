@@ -17,8 +17,9 @@
   <meta name="twitter:title" content="Muhammad Hassan Ali — Resume" />
   <meta name="twitter:description" content="Technologist and Certified Software Engineer focusing on Data Analysis." />
 
-  <link rel="preload" href="assets/styles.css" as="style" />
-  <link rel="stylesheet" href="assets/styles.css" />
+  <!-- CSS -->
+  <link rel="preload" href="Assets/styles.css" as="style" />
+  <link rel="stylesheet" href="Assets/styles.css" />
 
   <!-- Schema.org Person -->
   <script type="application/ld+json">
@@ -54,7 +55,7 @@
       </div>
       <div class="actions">
         <a class="btn primary" href="MuhammadHassanAli-CV.pdf" download>Download PDF</a>
-        <button id="themeToggle" class="btn">Toggle theme</button>
+        <button id="themeToggle" class="btn" aria-label="Toggle theme">Toggle theme</button>
       </div>
     </div>
   </header>
@@ -80,7 +81,7 @@
     <section id="skills" class="card">
       <h2>Skills</h2>
       <div class="skill-group">
-        <h3>Data & Analytics</h3>
+        <h3>Data &amp; Analytics</h3>
         <ul class="tags">
           <li>Data analysis</li><li>Data cleaning</li><li>SQL</li><li>Excel</li><li>Data visualization</li><li>Tableau</li><li>Power BI</li>
         </ul>
@@ -92,7 +93,7 @@
         </ul>
       </div>
       <div class="skill-group">
-        <h3>IT & Systems</h3>
+        <h3>IT &amp; Systems</h3>
         <ul class="tags">
           <li>Technical support</li><li>Hardware diagnostics</li><li>Software installation</li><li>Documentation maintenance</li>
         </ul>
@@ -104,7 +105,7 @@
         </ul>
       </div>
       <div class="skill-group">
-        <h3>AI & Prompting</h3>
+        <h3>AI &amp; Prompting</h3>
         <ul class="tags">
           <li>Artificial Intelligence</li><li>Prompt Engineering</li><li>Workflow Automation</li>
         </ul>
@@ -168,15 +169,15 @@
     <section id="certifications" class="card">
       <h2>Certifications</h2>
       <ul class="certs">
-        <li>Aug 2025 — Introduction to Prompt Engineering · Simplilearn</li>
-        <li>Aug 2025 — Advanced Prompt Engineering · Simplilearn</li>
-        <li>Aug 2025 — Introduction to Data Analytics · Simplilearn</li>
+        <li>Introduction to Prompt Engineering · Simplilearn</li>
+        <li>Advanced Prompt Engineering · Simplilearn</li>
+        <li>Introduction to Data Analytics · Simplilearn</li>
         <li>Specialization Certificate — Prompt Engineering · Vanderbilt University</li>
       </ul>
     </section>
 
     <section id="portfolio" class="card">
-      <h2>Portfolio & Profiles</h2>
+      <h2>Portfolio &amp; Profiles</h2>
       <ul class="links">
         <li><a rel="me" href="https://github.com/HassanAliMAli">GitHub</a></li>
         <li><a rel="me" href="https://www.linkedin.com/in/hassanalimali">LinkedIn</a></li>
@@ -191,12 +192,24 @@
         <div>
           <strong>Email:</strong>
           <a href="mailto:hassanali205031@gmail.com">hassanali205031@gmail.com</a>
-          <button class="mini" data-copy="hassanali205031@gmail.com">Copy</button>
+          <button class="copy-btn" data-copy="hassanali205031@gmail.com" aria-label="Copy email">
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 3h6a2 2 0 0 1 2 2v2h-2V5H9v2H7V5a2 2 0 0 1 2-2z"></path>
+              <rect x="7" y="7" width="10" height="14" rx="2"></rect>
+            </svg>
+            Copy
+          </button>
         </div>
         <div>
           <strong>Phone:</strong>
           <a href="tel:+923272106652">+92 327 2106652</a>
-          <button class="mini" data-copy="+923272106652">Copy</button>
+          <button class="copy-btn" data-copy="+923272106652" aria-label="Copy phone">
+            <svg class="icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 3h6a2 2 0 0 1 2 2v2h-2V5H9v2H7V5a2 2 0 0 1 2-2z"></path>
+              <rect x="7" y="7" width="10" height="14" rx="2"></rect>
+            </svg>
+            Copy
+          </button>
         </div>
         <div><strong>Location:</strong> Karachi, Pakistan (74550)</div>
       </div>
@@ -209,6 +222,6 @@
     </div>
   </footer>
 
-  <script src="assets/script.js" defer></script>
+  <script src="Assets/script.js" defer></script>
 </body>
 </html>

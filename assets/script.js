@@ -3,56 +3,57 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Theme toggle with localStorage
-  const key = 'mhali-theme';
-  const btn = document.getElementById('themeToggle');
+  // THEME TOGGLE: OS preference by default, override via data-theme + localStorage
   const root = document.documentElement;
-  const darkClass = 'dark-mode';
+  const btn = document.getElementById('themeToggle');
+  const KEY = 'theme'; // 'light' | 'dark'
 
   function applyTheme(mode) {
-    if (mode === 'dark') {
-      root.classList.add(darkClass);
-      document.metaThemeColor = '#0b1220';
+    if (mode === 'dark' || mode === 'light') {
+      root.setAttribute('data-theme', mode);
+      localStorage.setItem(KEY, mode);
     } else {
-      root.classList.remove(darkClass);
-      document.metaThemeColor = '#ffffff';
+      root.removeAttribute('data-theme'); // fallback to OS
+      localStorage.removeItem(KEY);
+    }
+    // Keep browser UI bars in sync
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) {
+      const bg = getComputedStyle(document.body).backgroundColor;
+      meta.setAttribute('content', bg);
     }
   }
 
-  const saved = localStorage.getItem(key);
-  if (saved) {
-    applyTheme(saved);
-  } else {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark ? 'dark' : 'light');
-  }
+  // Load saved theme or use OS preference
+  const saved = localStorage.getItem(KEY);
+  if (saved === 'dark' || saved === 'light') applyTheme(saved); else applyTheme(null);
 
   if (btn) {
     btn.addEventListener('click', () => {
-      const mode = root.classList.contains(darkClass) ? 'light' : 'dark';
-      applyTheme(mode);
-      localStorage.setItem(key, mode);
+      const now = root.getAttribute('data-theme'); // null means OS
+      applyTheme(now === 'dark' ? 'light' : 'dark');
     });
   }
 
-  // Copy buttons
-  document.querySelectorAll('button[data-copy]').forEach(b => {
+  // COPY BUTTONS: Clipboard API (works on HTTPS like GitHub Pages)
+  // Falls back to execCommand if needed
+  document.querySelectorAll('.copy-btn').forEach((b) => {
     b.addEventListener('click', async () => {
-      const text = b.getAttribute('data-copy');
+      const text = b.getAttribute('data-copy') || '';
+      const old = b.textContent;
       try {
-        await navigator.clipboard.writeText(text);
-        const old = b.textContent;
+        await navigator.clipboard.writeText(text); // requires secure context
         b.textContent = 'Copied!';
-        setTimeout(() => (b.textContent = old), 1200);
       } catch {
-        // Fallback
         const ta = document.createElement('textarea');
         ta.value = text;
         document.body.appendChild(ta);
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
+        b.textContent = 'Copied!';
       }
+      setTimeout(() => (b.textContent = old), 1200);
     });
   });
 })();
