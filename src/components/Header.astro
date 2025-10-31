@@ -1,0 +1,61 @@
+---
+---
+<header>
+  <div class="logo">
+    <a href="/">Hassan Ali</a>
+  </div>
+  <div class="theme-toggle">
+    <button id="theme-toggle-btn">Toggle Theme</button>
+  </div>
+</header>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle-btn');
+  const htmlElement = document.documentElement;
+
+  // Function to set theme
+  const setTheme = (theme) => {
+    htmlElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+  };
+
+  // Check for saved theme in local storage or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+  setTheme(initialTheme);
+
+  // Toggle theme on button click
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+  }
+  .logo a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #theme-toggle-btn {
+    background-color: var(--accent-color);
+    color: var(--light-bg);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+</style>

@@ -4,32 +4,20 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-const personalInfo = {
-  name: "Muhammad Hassan Ali",
-  email: "hassanali205031@gmail.com",
-  phone: "+92 327 2106652",
-  location: "Karachi, 74550 Pakistan",
-  tagline: "Data. Automation. Insight.",
-  github: "github.com/HassanAliMAli",
-  linkedin: "linkedin.com/in/hassanalimali",
-  twitter: "x.com/itzAlm1ghty",
-  medium: "medium.com/@hassanalimali",
-};
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Portfolio of Muhammad Hassan Ali, a multi-disciplinary technologist." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />
@@ -37,23 +25,27 @@ const personalInfo = {
 </html>
 <style is:global>
 	:root {
-		--accent-blue: #007BFF;
-		--accent-green: #28A745;
-		--tech-gray: #343A40;
-		--light-bg: #F8F9FA;
-		--dark-bg: #121212;
-		--light-text: #212529;
-		--dark-text: #EAEAEA;
-		--light-card-bg: #FFFFFF;
-		--dark-card-bg: #1E1E1E;
-		--light-border: #DEE2E6;
-		--dark-border: #333333;
+		--accent: #0d6efd; /* A more standard, sober blue */
+		--accent-hover: #0b5ed7;
 
+		/* Light Theme */
+		--light-bg: #f8f9fa;
+		--light-text: #212529;
+		--light-card-bg: #ffffff;
+		--light-border: #e9ecef;
+
+		/* Dark Theme */
+		--dark-bg: #121212;
+		--dark-text: #e0e0e0;
+		--dark-card-bg: #1e1e1e; /* A common Material dark surface color */
+		--dark-border: #333;
+
+		/* Default to light theme */
 		--bg-color: var(--light-bg);
 		--text-color: var(--light-text);
 		--card-bg-color: var(--light-card-bg);
 		--border-color: var(--light-border);
-		--accent-color: var(--accent-blue);
+		--accent-color: var(--accent);
 	}
 
 	[data-theme='dark'] {
@@ -64,49 +56,55 @@ const personalInfo = {
 	}
 
 	html {
-		font-family: 'Inter', sans-serif;
+		font-family: 'Roboto', sans-serif;
 		background-color: var(--bg-color);
 		color: var(--text-color);
 		scroll-behavior: smooth;
+        transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	body {
 		margin: 0;
-		padding: 2rem;
-		max-width: 800px;
-		margin: auto;
+		padding: 0 1rem;
 	}
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'IBM Plex Mono', monospace;
 		color: var(--accent-color);
+        font-weight: 700;
 	}
 
 	a {
 		color: var(--accent-color);
 		text-decoration: none;
+        transition: color 0.2s ease;
 	}
 
 	a:hover {
+		color: var(--accent-hover);
 		text-decoration: underline;
-	}
-
-	.container {
-		padding: 2rem;
 	}
 
 	.card {
 		background-color: var(--card-bg-color);
 		border: 1px solid var(--border-color);
-		border-radius: 0.5rem;
-		padding: 1.5rem;
-		margin-bottom: 1.5rem;
-		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-		transition: all 0.3s ease;
+		border-radius: 8px; /* Slightly larger radius for Material feel */
+		padding: 2rem;
+		margin-bottom: 2rem;
+        /* Material Design shadow - subtle but provides elevation */
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 	}
 
 	.card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+		transform: translateY(-2px);
+        /* A more pronounced shadow on hover */
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	}
 </style>

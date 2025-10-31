@@ -53,11 +53,12 @@ const projects = [
     }
     .project-card {
         border: 1px solid var(--border-color);
-        border-radius: 0.5rem;
+        border-radius: 8px;
         padding: 1.5rem;
         background-color: var(--bg-color);
         display: flex;
         flex-direction: column;
+        transition: background-color 0.3s ease;
     }
     .stack {
         margin: 1rem 0;
@@ -68,15 +69,17 @@ const projects = [
     .tech-badge {
         background-color: var(--accent-color);
         color: var(--light-bg);
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 16px;
         font-size: 0.8rem;
         font-family: 'IBM Plex Mono', monospace;
     }
     .project-links {
         margin-top: auto;
+        padding-top: 1rem;
     }
     .project-links a {
         margin-right: 1rem;
+        font-weight: bold;
     }
 </style>
