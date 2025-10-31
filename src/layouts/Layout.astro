@@ -1,0 +1,112 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+const personalInfo = {
+  name: "Muhammad Hassan Ali",
+  email: "hassanali205031@gmail.com",
+  phone: "+92 327 2106652",
+  location: "Karachi, 74550 Pakistan",
+  tagline: "Data. Automation. Insight.",
+  github: "github.com/HassanAliMAli",
+  linkedin: "linkedin.com/in/hassanalimali",
+  twitter: "x.com/itzAlm1ghty",
+  medium: "medium.com/@hassanalimali",
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent-blue: #007BFF;
+		--accent-green: #28A745;
+		--tech-gray: #343A40;
+		--light-bg: #F8F9FA;
+		--dark-bg: #121212;
+		--light-text: #212529;
+		--dark-text: #EAEAEA;
+		--light-card-bg: #FFFFFF;
+		--dark-card-bg: #1E1E1E;
+		--light-border: #DEE2E6;
+		--dark-border: #333333;
+
+		--bg-color: var(--light-bg);
+		--text-color: var(--light-text);
+		--card-bg-color: var(--light-card-bg);
+		--border-color: var(--light-border);
+		--accent-color: var(--accent-blue);
+	}
+
+	[data-theme='dark'] {
+		--bg-color: var(--dark-bg);
+		--text-color: var(--dark-text);
+		--card-bg-color: var(--dark-card-bg);
+		--border-color: var(--dark-border);
+	}
+
+	html {
+		font-family: 'Inter', sans-serif;
+		background-color: var(--bg-color);
+		color: var(--text-color);
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		padding: 2rem;
+		max-width: 800px;
+		margin: auto;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'IBM Plex Mono', monospace;
+		color: var(--accent-color);
+	}
+
+	a {
+		color: var(--accent-color);
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	.container {
+		padding: 2rem;
+	}
+
+	.card {
+		background-color: var(--card-bg-color);
+		border: 1px solid var(--border-color);
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+		margin-bottom: 1.5rem;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+		transition: all 0.3s ease;
+	}
+
+	.card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+	}
+</style>

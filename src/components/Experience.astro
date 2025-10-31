@@ -1,0 +1,95 @@
+---
+const experiences = [
+    {
+        role: "Archive Officer",
+        company: "GTV NEWS HD",
+        period: "Jul 2022 - Current",
+        duties: [
+            "Addressed public questions, complaints and requests and provided necessary assistance.",
+            "Prepared and submitted detailed reports regarding assignments and ongoing investigations.",
+            "Collected, arranged, and input information into database system."
+        ]
+    },
+    {
+        role: "IT Assistant",
+        company: "GTV NEWS HD",
+        period: "Feb 2019 - Dec 2021",
+        duties: [
+            "Responded to queries on phone, via email or through IT ticketing system.",
+            "Reviewed system and network performance to make proactive adjustments based on newly established IT policies.",
+            "Maintained current software licenses and patched applications to stay up-to-date with latest features.",
+            "Installed and configured software and hardware.",
+            "Maintained servers and systems to keep networks fully operational during peak periods.",
+            "Configured hardware, devices, and software to set up work stations for employees.",
+            "Installed, configured and maintained computer systems and network connections."
+        ]
+    },
+    {
+        role: "Junior PHP Developer",
+        company: "Fusion Tech",
+        period: "Mar 2017 - Dec 2018",
+        duties: [
+            "Developed back-end components to connect applications with web services.",
+            "Wrote server-side and client-side code for ecommerce and other professional projects using PHP, HTML, CSS and JavaScript.",
+            "Planned, coded and deployed web-based applications using PHP, MySQL and JavaScript."
+        ]
+    }
+];
+---
+
+<section id="experience" class="card">
+    <h2>Experience</h2>
+    <div class="timeline">
+        {experiences.map(exp => (
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>{exp.role}</h3>
+                    <p class="company-period">{exp.company} | {exp.period}</p>
+                    <ul>
+                        {exp.duties.map(duty => (
+                            <li>{duty}</li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .timeline-item {
+        position: relative;
+        padding-left: 2rem;
+        padding-bottom: 2rem;
+        border-left: 2px solid var(--border-color);
+    }
+
+    .timeline-item:last-child {
+        border-left: 2px solid transparent;
+        padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -9px; /* Adjust to center the dot on the line */
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+    }
+
+    .company-period {
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        padding-left: 1.2rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+</style>

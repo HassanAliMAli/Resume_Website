@@ -1,0 +1,38 @@
+---
+const certifications = [
+    {
+        date: "Aug 2025",
+        name: "Introduction to Prompt Engineering",
+        issuer: "Simplilearn"
+    },
+    {
+        date: "Aug 2025",
+        name: "Advanced Prompt Engineering",
+        issuer: "Simplilearn"
+    },
+    {
+        date: "Aug 2.025",
+        name: "Introduction to Data Analytics",
+        issuer: "Simplilearn"
+    }
+];
+---
+
+<section id="certifications" class="card">
+    <h2>Certifications</h2>
+    {certifications.map(cert => (
+        <div class="certification-item">
+            <h3>{cert.name}</h3>
+            <p>{cert.issuer} - {cert.date}</p>
+        </div>
+    ))}
+</section>
+
+<style>
+    .certification-item {
+        margin-bottom: 1rem;
+    }
+    .certification-item:last-child {
+        margin-bottom: 0;
+    }
+</style>

@@ -1,0 +1,56 @@
+---
+const educations = [
+    {
+        institution: "Vanderbilt University",
+        location: "Nashville, USA",
+        degree: "Specialization Certificate: Prompt Engineering"
+    },
+    {
+        institution: "Karachi University",
+        location: "Karachi, Pakistan",
+        degree: "BCOM: Bachelor's Of Commerce"
+    },
+    {
+        institution: "Aptech Learning",
+        location: "Karachi, Pakistan",
+        degree: "ACCP Pro: Software Engineering (3 Years)"
+    },
+    {
+        institution: "Shipowner's Govt. College",
+        location: "Karachi, Pakistan",
+        degree: "Associate of Pre-Engineering: Science"
+    },
+    {
+        institution: "Prime Public School",
+        location: "Karachi, Pakistan",
+        degree: "Matriculation: Science"
+    }
+];
+---
+
+<section id="education" class="card">
+    <h2>Education</h2>
+    {educations.map(edu => (
+        <div class="education-item">
+            <h3>{edu.institution}</h3>
+            <p class="location-degree">{edu.location}</p>
+            <p class="degree">{edu.degree}</p>
+        </div>
+    ))}
+</section>
+
+<style>
+    .education-item {
+        margin-bottom: 1.5rem;
+    }
+    .education-item:last-child {
+        margin-bottom: 0;
+    }
+    .location-degree {
+        font-style: italic;
+        margin: 0.25rem 0;
+    }
+    .degree {
+        font-weight: bold;
+    }
+</style>

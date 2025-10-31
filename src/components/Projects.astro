@@ -1,0 +1,82 @@
+---
+const projects = [
+    {
+        title: "Project Alpha",
+        description: "A description of Project Alpha, explaining the problem it solves and the value it provides. This project demonstrates skills in X, Y, and Z.",
+        stack: ["Astro", "TypeScript", "Netlify"],
+        github: "#",
+        live: "#"
+    },
+    {
+        title: "Project Beta",
+        description: "A description of Project Beta, a web application that does amazing things. It was built with a focus on performance and user experience.",
+        stack: ["React", "Node.js", "PostgreSQL"],
+        github: "#",
+        live: "#"
+    },
+    {
+        title: "Project Gamma",
+        description: "A description of Project Gamma. This could be a data analysis project, a bot, or any other work you want to showcase.",
+        stack: ["Python", "Pandas", "Jupyter"],
+        github: "#",
+        live: null
+    }
+];
+---
+
+<section id="projects" class="card">
+    <h2>Projects & Portfolio</h2>
+    <div class="projects-grid">
+        {projects.map(project => (
+            <div class="project-card">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div class="stack">
+                    {project.stack.map(tech => (
+                        <span class="tech-badge">{tech}</span>
+                    ))}
+                </div>
+                <div class="project-links">
+                    {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>}
+                    {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer">Live Demo</a>}
+                </div>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    .project-card {
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        background-color: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+    }
+    .stack {
+        margin: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .tech-badge {
+        background-color: var(--accent-color);
+        color: var(--light-bg);
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.8rem;
+        font-family: 'IBM Plex Mono', monospace;
+    }
+    .project-links {
+        margin-top: auto;
+    }
+    .project-links a {
+        margin-right: 1rem;
+    }
+</style>

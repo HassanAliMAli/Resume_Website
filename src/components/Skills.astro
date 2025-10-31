@@ -1,0 +1,52 @@
+---
+const skills = {
+  "Data & Analytics": ["Data analysis", "Data cleaning", "SQL database management", "Excel", "Data visualization", "Tableau", "Power BI"],
+  "Programming": ["Python", "PHP", "REACT", "JavaScript"],
+  "IT & Systems": ["Technical support and troubleshooting", "Hardware diagnostics and upgrades", "Software installation and diagnosis", "Documentation maintenance"],
+  "AI & Prompting": ["Artificial Intelligence", "Prompt Engineering", "Workflow Automation"],
+  "Professional": ["Time management", "Team collaboration", "Critical thinking", "Problem solving", "Project coordination"],
+};
+---
+
+<section id="skills" class="card">
+    <h2>Skills & Tools</h2>
+    <div class="skills-grid">
+        {Object.entries(skills).map(([category, skillList]) => (
+            <div class="skill-category">
+                <h3>{category}</h3>
+                <ul>
+                    {skillList.map(skill => (
+                        <li>{skill}</li>
+                    ))}
+                </ul>
+            </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .skill-category h3 {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .skill-category ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .skill-category li {
+        background-color: var(--bg-color);
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+</style>
