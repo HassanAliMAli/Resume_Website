@@ -48,21 +48,28 @@ const { title } = Astro.props;
 		--accent-color: var(--accent);
 	}
 
+html {
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		line-height: 1.6;
+		background-color: var(--bg-color);
+		/* Subtle dot pattern for light mode */
+		background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23e0e0e0'/%3E%3C/svg%3E");
+		color: var(--text-color);
+		scroll-behavior: smooth;
+        transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	[data-theme='dark'] html {
+		/* A different, darker pattern for dark mode */
+		background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23333'/%3E%3C/svg%3E");
+	}
+
 	[data-theme='dark'] {
 		--bg-color: var(--dark-bg);
 		--text-color: var(--dark-text);
 		--card-bg-color: var(--dark-card-bg);
 		--border-color: var(--dark-border);
-	}
-
-	html {
-		font-family: 'Roboto', sans-serif;
-		font-size: 16px;
-		line-height: 1.6;
-		background-color: var(--bg-color);
-		color: var(--text-color);
-		scroll-behavior: smooth;
-        transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	body {
