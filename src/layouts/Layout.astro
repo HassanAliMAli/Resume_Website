@@ -25,19 +25,19 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: #0d6efd; /* A more standard, sober blue */
-		--accent-hover: #0b5ed7;
+		--accent: #004d40; /* Sophisticated Green */
+		--accent-hover: #00796b;
 
 		/* Light Theme */
-		--light-bg: #f8f9fa;
-		--light-text: #212529;
+		--light-bg: #f7f7f7; /* Off-white */
+		--light-text: #1a1a1a;
 		--light-card-bg: #ffffff;
-		--light-border: #e9ecef;
+		--light-border: #e0e0e0;
 
 		/* Dark Theme */
-		--dark-bg: #121212;
-		--dark-text: #e0e0e0;
-		--dark-card-bg: #1e1e1e; /* A common Material dark surface color */
+		--dark-bg: #1a1a1a;
+		--dark-text: #f0f0f0;
+		--dark-card-bg: #242424;
 		--dark-border: #333;
 
 		/* Default to light theme */
@@ -57,6 +57,8 @@ const { title } = Astro.props;
 
 	html {
 		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+		line-height: 1.6;
 		background-color: var(--bg-color);
 		color: var(--text-color);
 		scroll-behavior: smooth;
@@ -69,15 +71,22 @@ const { title } = Astro.props;
 	}
 
     .container {
-        max-width: 960px;
+        max-width: 900px;
         margin: 0 auto;
         padding: 2rem 1rem;
     }
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'IBM Plex Mono', monospace;
-		color: var(--accent-color);
+		color: var(--text-color);
         font-weight: 700;
+	}
+
+	h2 {
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--border-color);
 	}
 
 	a {
@@ -88,23 +97,27 @@ const { title } = Astro.props;
 
 	a:hover {
 		color: var(--accent-hover);
-		text-decoration: underline;
+		text-decoration: none;
 	}
 
+	/* A card is now a more specific element, not for every section */
 	.card {
 		background-color: var(--card-bg-color);
 		border: 1px solid var(--border-color);
-		border-radius: 8px; /* Slightly larger radius for Material feel */
+		border-radius: 8px;
 		padding: 2rem;
-		margin-bottom: 2rem;
-        /* Material Design shadow - subtle but provides elevation */
-		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+		transition: all 0.3s ease;
 	}
 
 	.card:hover {
 		transform: translateY(-2px);
-        /* A more pronounced shadow on hover */
-		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 	}
+
+	/* Sections will now just be sections, with spacing */
+	main > section {
+		padding: 3rem 0;
+	}
+
 </style>
