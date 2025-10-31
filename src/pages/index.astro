@@ -16,13 +16,15 @@ import Footer from '../components/Footer.astro';
 		<Header />
 		<main>
 			<Hero />
-			<About />
-			<Skills />
-			<Experience />
-			<Projects />
-			<Education />
-			<Certifications />
+			<section class="animated-section"><About /></section>
+			<section class="animated-section"><Skills /></section>
+			<section class="animated-section"><Experience /></section>
+			<section class="animated-section"><Projects /></section>
+			<section class="animated-section"><Education /></section>
+			<section class="animated-section"><Certifications /></section>
 		</main>
-		<Footer />
+		<footer class="animated-section">
+			<Footer />
+		</footer>
 	</div>
 </Layout>
